@@ -6,6 +6,6 @@
 </script>
 
 <div class=" w-full mx-auto pb-48">
-	<div class=" text-4xl font-black text-center py-10">Choose your occupation!</div>
+	<div class=" text-4xl font-black text-center py-10">Find your occupation!</div>
 	<Card {popularJobs} />
 </div>

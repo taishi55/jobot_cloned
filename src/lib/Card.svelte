@@ -5,7 +5,7 @@
 </script>
 
 <ul
-	class="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-6 before:w-[30vw] before:shrink-0 after:w-[30vw] after:shrink-0"
+	class="flex w-full snap-x snap-mandatory space-x-6 lg:space-x-10 overflow-x-auto pb-6 before:w-[30vw] before:shrink-0 after:w-[30vw] after:shrink-0"
 >
 	{#each popularJobs as job, index}
 		<li
@@ -16,7 +16,7 @@
 			<div class="absolute top-0 left-0 p-5">
 				<h3 class=" font-semibold text-white text-2xl">{job.title}</h3>
 			</div>
-			<div class="absolute bottom-0 right-0 p-3">
+			<div class="absolute bottom-0 right-0 p-5">
 				<a
 					href="/search/{job.title.trim().replaceAll(' ', '+')}"
 					class="px-3 py-1 bg-sky-500 text-white rounded space-x-2"

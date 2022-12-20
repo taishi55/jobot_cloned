@@ -30,7 +30,9 @@
 			<i class="fas fa-map-marker-alt absolute top-1/2 left-0 -translate-y-1/2 text-slate-400" />
 		</div>
 
-		<button class="text-white bg-sky-500 py-1 text-center w-full font-light block"> Search </button>
+		<button class="text-white bg-sky-500 py-1 text-center w-full font-light block rounded-md">
+			Search
+		</button>
 	</div>
 </div>
 
