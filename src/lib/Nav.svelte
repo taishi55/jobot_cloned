@@ -14,14 +14,14 @@
 
 	<!-- desktop siginin -->
 	<div class="signin">
-		<button class="blue-outline-btn">
+		<a href="https://jobot.com/login" class="blue-outline-btn">
 			<i class="fal fa-sign-in text-xl" />
 			<span>Sign In</span>
-		</button>
-		<button class="blue-btn">
+		</a>
+		<a href="https://jobot.com/login/sign-up" class="blue-btn">
 			<i class="fal fa-sign-in text-xl" />
 			<span>Sign Up</span>
-		</button>
+		</a>
 	</div>
 
 	<!-- mobile bar icon -->
