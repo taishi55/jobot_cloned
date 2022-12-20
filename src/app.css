@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input{
+    @apply outline-none
+}
+
+input:focus::placeholder {
+	@apply text-transparent;
+}
+
+input:focus::-webkit-input-placeholder {
+	@apply text-transparent;
+}
+
+input:focus:-ms-input-placeholder {
+	@apply text-transparent;
+}
+
+div{
+    @apply font-sans
+}
