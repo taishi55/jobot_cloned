@@ -11,7 +11,7 @@ export const load: PageLoad = async ({ fetch }) => {
 		{
 			title: 'Accountant',
 			imgUrl:
-				'https://plus.unsplash.com/premium_photo-1661476077241-c10b94a010c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+				'https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGFjY291bnRhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
 		},
 		{
 			title: 'Construction',
