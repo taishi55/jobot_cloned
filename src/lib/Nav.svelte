@@ -1,8 +1,11 @@
 <nav>
 	<!-- logo -->
 	<div class="w-60 pb-2">
-		<a href="/" class="w-fit">
+		<a href="/" class="w-fit relative">
 			<img src="/logo.svg" class="h-10" alt="" />
+			<div class=" text-red-600 font-semibold absolute -top-4 left-2 text-xs font-mono">
+				Cloned Edition
+			</div>
 		</a>
 	</div>
 

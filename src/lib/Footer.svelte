@@ -14,8 +14,8 @@
 			<div class="text-xl font-mono leading-tight">Taishi Nammoto</div>
 		</div>
 		<div class="font-mono">
-			Please hire me! I want a job that pays well.<br />I need H1-b support which most companies
-			hate to do 😭😭😭
+			Hire me! I want a job that pays well.<br />I need H1-b support which most companies hate to do
+			😭😭😭
 		</div>
 	</div>
 </footer>
