@@ -1,13 +1,19 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import puppeteer from 'puppeteer';
+import chromium from 'chrome-aws-lambda';
 export const prerender = true;
 
 export const load: PageServerLoad = async ({ params }) => {
 	// scrape data from the following url
 	const url = `https://jobot.com/search?q=${params.jobName}&l=${params.jobLocation}`;
 	try {
-		const browser = await puppeteer.launch({ headless: true });
+		const browser = await chromium.puppeteer.launch({
+			args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+			defaultViewport: chromium.defaultViewport,
+			executablePath: await chromium.executablePath,
+			headless: true,
+			ignoreHTTPSErrors: true
+		});
 		const page = await browser.newPage();
 		await page.goto(url, {
 			waitUntil: 'load'
