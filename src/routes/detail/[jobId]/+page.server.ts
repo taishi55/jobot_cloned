@@ -1,7 +1,6 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { parse } from 'node-html-parser';
-export const prerender = true;
 
 export const load: PageServerLoad = async ({ params }) => {
 	// scrape data from the following url
