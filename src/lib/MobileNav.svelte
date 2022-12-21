@@ -24,7 +24,7 @@
 
 <style lang="postcss" scoped>
 	.open {
-		@apply fixed inset-0 w-full h-full transition-all duration-500 ease-in-out z-50 text-lg grid grid-cols-5;
+		@apply lg:hidden fixed inset-0 w-full h-full transition-all duration-500 ease-in-out z-50 text-lg grid grid-cols-5;
 	}
 
 	.not-open {
