@@ -1,17 +1,13 @@
 <script lang="ts">
-	import Popular from '$lib/Popular.svelte';
+	import JobSearchResult from '$lib/JobSearchResult.svelte';
 	import type { PageData } from './$types';
-	import Landing from '$lib/Landing.svelte';
-
 	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>Jabot cloned edition</title>
+	<title>Find a job!</title>
 	<meta name="description" content="AI recommends a perfect job for you." />
 	<meta name="keywords" content="Jabot, Clone, UI/UX" />
 </svelte:head>
 
-<Landing />
-
-<Popular popularJobs={data.popularJobs} />
+<JobSearchResult jobList={data.jobs} />

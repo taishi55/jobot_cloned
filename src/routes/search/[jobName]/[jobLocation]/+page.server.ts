@@ -5,7 +5,7 @@ export const prerender = true;
 
 export const load: PageServerLoad = async ({ params }) => {
 	// scrape data from the following url
-	const url = `https://jobot.com/search?q=${params.jobName}&l`;
+	const url = `https://jobot.com/search?q=${params.jobName}&l=${params.jobLocation}`;
 	try {
 		const browser = await puppeteer.launch({ headless: true });
 		const page = await browser.newPage();
@@ -36,7 +36,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
 		browser.close();
 
-		return {jobs: result};
+		return { jobs: result };
 	} catch (err) {
 		console.log(err);
 		throw error(404, 'Not found');

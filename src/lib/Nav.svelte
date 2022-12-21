@@ -1,15 +1,15 @@
 <nav>
 	<!-- logo -->
 	<div class="w-60 pb-2">
-		<img src="/logo.svg" class=" w-32" alt="" />
+		<a href="/" class="w-fit">
+			<img src="/logo.svg" class="h-10" alt="" />
+		</a>
 	</div>
 
 	<!-- desktop menu -->
 	<div class="menu">
 		<a href="/" class="menu-btn">Find a job</a>
-		<a href="/" class="menu-btn">Hire</a>
-		<a href="/" class="menu-btn">About</a>
-		<a href="/" class="menu-btn">News</a>
+		<a href="/saved" class="menu-btn">Saved</a>
 	</div>
 
 	<!-- desktop siginin -->
