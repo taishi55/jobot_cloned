@@ -10,10 +10,10 @@
 </script>
 
 <div class="bg-slate-100 py-10 px-4 lg:px-8 flex flex-col lg:flex-row">
-	<div class="w-1/3 lg:pr-8 lg:h-screen">
+	<div class="lg:w-1/3 lg:pr-8 lg:h-screen lg:sticky lg:top-[6rem]">
 		<Sidebar />
 	</div>
-	<div class="w-2/3 space-y-8">
+	<div class="lg:w-2/3 space-y-8">
 		{#if jobList.length > 0}
 			{#each jobList as job (job.url)}
 				<div animate:flip={{ duration: 400 }}>

@@ -1,50 +1,37 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import chromium from 'chrome-aws-lambda';
+import { parse } from 'node-html-parser';
 export const prerender = true;
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ fetch, params }) => {
 	// scrape data from the following url
 	const url = `https://jobot.com/search?q=${params.jobName}&l=${params.jobLocation}`;
 	try {
-		const browser = await chromium.puppeteer.launch({
-			args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
-			defaultViewport: chromium.defaultViewport,
-			executablePath: await chromium.executablePath,
-			headless: true,
-			ignoreHTTPSErrors: true
-		});
-		const page = await browser.newPage();
-		await page.goto(url, {
-			waitUntil: 'load'
-		});
+		const response = await fetch(url);
+		const body = await response.text();
+		const root = parse(body);
+		// parse string of html
+		const jobs = root.querySelectorAll('.search-result');
+		// return a list of jobs
 
-		const result = await page.evaluate(() => {
-			const jobs = Array.from(document.querySelectorAll('.search-result'));
-			const info = jobs.map((element) => {
-				const title = element.querySelector('a')?.textContent?.trim();
-				const url = element.querySelector('a')?.href?.trim();
-				const description = element.querySelector('.ellipsis')?.textContent?.trim();
-				const isRemote = element.querySelectorAll('li')[0]?.textContent?.trim() === 'REMOTE';
-				const location = element.querySelectorAll('li')[1]?.textContent?.trim();
-				const salary = element.querySelectorAll('li')[2]?.textContent?.trim();
-				return {
-					title: title || '',
-					url: url || '',
-					description: description || '',
-					isRemote: isRemote,
-					location: location || '',
-					salary: salary || ''
-				};
-			});
-			return info;
+		const info = jobs.map((element) => {
+			const title = element.querySelector('a')?.textContent?.trim();
+			const url = element.querySelector('a')?.attrs?.href.trim();
+			const description = element.querySelector('.ellipsis')?.textContent?.trim();
+			const isRemote = element.querySelectorAll('li')[0]?.textContent?.trim() === 'REMOTE';
+			const location = element.querySelectorAll('li')[1]?.textContent?.trim();
+			const salary = element.querySelectorAll('li')[2]?.textContent?.trim();
+			return {
+				title: title || '',
+				url: url || '',
+				description: description || '',
+				isRemote: isRemote,
+				location: location || '',
+				salary: salary || ''
+			};
 		});
-
-		browser.close();
-
-		return { jobs: result };
+		return { jobs: info };
 	} catch (err) {
-		console.log(err);
 		throw error(404, 'Not found');
 	}
 };

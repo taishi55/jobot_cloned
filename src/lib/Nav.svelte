@@ -1,9 +1,15 @@
+<script lang="ts">
+	import MobileNav from './MobileNav.svelte';
+
+	let isOpenNavbar = false;
+</script>
+
 <nav>
 	<!-- logo -->
 	<div class="w-60 pb-2">
 		<a href="/" class="w-fit relative">
 			<img src="/logo.svg" class="h-10" alt="" />
-			<div class=" text-red-600 font-semibold absolute -top-4 left-2 text-xs font-mono">
+			<div class=" text-red-600 font-semibold absolute -bottom-4 left-2 text-xs font-mono">
 				Cloned Edition
 			</div>
 		</a>
@@ -29,8 +35,13 @@
 
 	<!-- mobile bar icon -->
 	<div class="lg:hidden">
-		<button><i class="fal fa-bars text-3xl" /></button>
+		<button
+			on:click={() => {
+				isOpenNavbar = !isOpenNavbar;
+			}}><i class="fal fa-bars text-3xl" /></button
+		>
 	</div>
+	<MobileNav {isOpenNavbar} />
 </nav>
 
 <style lang="postcss" scoped>

@@ -95,7 +95,7 @@
 	}
 
 	h3 {
-		@apply text-xl font-semibold border-b;
+		@apply text-xl font-semibold border-b border-slate-200 pb-2;
 	}
 
 	p {
@@ -103,6 +103,6 @@
 	}
 
 	.card {
-		@apply p-5 shadow-lg shadow-slate-300 rounded-lg bg-white space-y-3;
+		@apply p-5 shadow-lg shadow-slate-300 rounded-lg bg-white space-y-3 lg:space-y-4;
 	}
 </style>

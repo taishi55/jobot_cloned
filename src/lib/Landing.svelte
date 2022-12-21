@@ -8,7 +8,7 @@
 	<img src="/new_icon.png" alt="" class="block lg:max-w-xl pb-7 lg:pb-0 w-2/3 mx-auto lg:mx-0" />
 
 	<div
-		class=" bg-white to-white shadow-xl shadow-slate-300 rounded-3xl p-5 lg:p-8 space-y-6 w-[40rem]"
+		class=" bg-white to-white shadow-xl shadow-slate-300 rounded-3xl p-5 lg:p-8 space-y-6 mx-auto w-full lg:w-[40rem]"
 	>
 		<div class="space-y-2">
 			<h1 class="text-2xl lg:text-4xl font-black">Hire or Be Hired.</h1>
