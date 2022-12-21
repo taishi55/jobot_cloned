@@ -3,7 +3,7 @@
 >
 	<div class="space-y-2">
 		<div class="flex items-center space-x-4">
-			<a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+			<a href="https://github.com/taishi55/jobot_cloned" target="_blank" rel="noopener noreferrer"
 				><i class="fab fa-github" /></a
 			>
 			<a
