@@ -11,3 +11,8 @@ export interface SavedJob {
 	location: string;
 	salary: string;
 }
+
+export interface optionType {
+	name: string;
+	query: string;
+}

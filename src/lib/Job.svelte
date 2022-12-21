@@ -9,13 +9,7 @@
 	class=" rounded-lg shadow-xl shadow-slate-300 space-y-3 px-6 pt-6 pb-4 bg-white block relative"
 >
 	<span class="flex items-start justify-between space-x-3 lg:space-x-5">
-		<a
-			href="/detail/{thisJob.url.split('/').at(-1)}"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="text-xl font-semibold text-sky-600"
-		>
-			<i class="fas fa-external-link pr-2" />
+		<a href="/detail/{thisJob.url.split('/').at(-1)}" class="text-xl font-semibold text-sky-600">
 			<span class="hover:underline">{thisJob.title}</span>
 		</a>
 		<Bookmark {thisJob} />

@@ -49,7 +49,6 @@ export const load: PageServerLoad = async ({ params }) => {
 
 		return { ...info };
 	} catch (err) {
-		console.log(err);
 		throw error(404, 'Not found');
 	}
 };

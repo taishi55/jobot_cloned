@@ -4,7 +4,8 @@ import { parse } from 'node-html-parser';
 
 export const load: PageServerLoad = async ({ fetch, params }) => {
 	// scrape data from the following url
-	const url = `https://jobot.com/search?q=${params.jobName}&l`;
+	let url = `https://jobot.com/search?q=${params.query.replace('&sort=relevant', '&sort=')}`;
+
 	try {
 		const response = await fetch(url);
 		const body = await response.text();
@@ -15,7 +16,7 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
 
 		const info = jobs.map((element) => {
 			const title = element.querySelector('a')?.textContent?.trim();
-			const url = element.querySelector('a')?.attrs?.href?.trim();
+			const url = element.querySelector('a')?.attrs?.href.trim();
 			const description = element.querySelector('.ellipsis')?.textContent?.trim();
 			const isRemote = element.querySelectorAll('li')[0]?.textContent?.trim() === 'REMOTE';
 			const location = element.querySelectorAll('li')[1]?.textContent?.trim();

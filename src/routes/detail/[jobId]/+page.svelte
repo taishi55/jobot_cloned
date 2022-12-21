@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Format from '$lib/Format.svelte';
 	import Pill from '$lib/Pill.svelte';
+	import { fade, fly, scale } from 'svelte/transition';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
@@ -9,9 +11,14 @@
 	<meta name="description" content={data.description} />
 </svelte:head>
 
-<div class="bg-slate-50">
-	<article class="px-5 lg:px-8 py-10 lg:w-2/3 lg:mx-auto space-y-6">
+<Format>
+	<article class="space-y-3 block">
 		<div class="card">
+			<div>
+				<button on:click={() => history.back()}>
+					<i class="fas fa-long-arrow-left text-slate-600 text-xl" />
+				</button>
+			</div>
 			<h1>
 				{data.title}
 			</h1>
@@ -87,7 +94,7 @@
 			<p>{@html data.detail}</p>
 		</div>
 	</article>
-</div>
+</Format>
 
 <style lang="postcss" scoped>
 	h1 {

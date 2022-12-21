@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import Format from '$lib/Format.svelte';
 	import JobSearchResult from '$lib/JobSearchResult.svelte';
 	import { markedJobsInfo, storeJobName } from '$lib/store/bookmark';
 
@@ -20,4 +21,6 @@
 	<meta name="keywords" content="Jabot, Clone, UI/UX" />
 </svelte:head>
 
-<JobSearchResult jobList={$markedJobsInfo} {message} />
+<Format>
+	<JobSearchResult jobList={$markedJobsInfo} {message} />
+</Format>

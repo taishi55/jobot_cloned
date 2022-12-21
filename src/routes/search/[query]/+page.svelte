@@ -1,6 +1,7 @@
 <script lang="ts">
+	import Format from '$lib/Format.svelte';
 	import JobSearchResult from '$lib/JobSearchResult.svelte';
-	import type { PageData } from './[jobLocation]/$types';
+	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
 
@@ -10,4 +11,6 @@
 	<meta name="keywords" content="Jabot, Clone, UI/UX" />
 </svelte:head>
 
-<JobSearchResult jobList={data.jobs} />
+<Format>
+	<JobSearchResult jobList={data.jobs} />
+</Format>

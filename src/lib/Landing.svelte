@@ -1,7 +1,3 @@
-<script>
-	import Form from './Form.svelte';
-</script>
-
 <div
 	class="p-4 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-center lg:space-x-5 bg-gradient-to-b from-white to-sky-100"
 >
@@ -15,7 +11,7 @@
 			<h2 class="lg:text-2xl font-light">AI powered job search starts here</h2>
 		</div>
 
-		<Form />
+		<slot />
 	</div>
 </div>
 

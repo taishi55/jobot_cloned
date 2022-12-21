@@ -15,7 +15,7 @@
 			isLoading = false;
 		}, 3800);
 
-		goto(`/search/${title.trim().replaceAll(' ', '+')}/${location.trim().replaceAll(' ', '+')}`);
+		goto(`/search/${title.trim().replaceAll(' ', '+')}&l=${location.trim().replaceAll(' ', '+')}`);
 	};
 </script>
 
