@@ -4,6 +4,10 @@
 	export let options: string[];
 	export let text: string;
 	export let isLocation = false;
+	let isVisible = false;
+	$: if (text) {
+		isVisible = true;
+	}
 
 	const eventHandlar = (name: string) => {
 		if (isLocation) {
@@ -14,9 +18,16 @@
 	};
 </script>
 
-{#if options.some((name) => name
-			.toLowerCase()
-			.includes(text.toLowerCase()) && text && text !== name)}
+{#if isVisible && options.some((name) => name
+				.toLowerCase()
+				.includes(text.toLowerCase()) && text && text !== name)}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div
+		on:click={() => {
+			isVisible = false;
+		}}
+		class=" fixed top-0 left-0 w-full h-full z-10"
+	/>
 	<div class="autocompletion">
 		{#each options.filter((name) => name.toLowerCase().includes(text.toLowerCase())) as name}
 			<button on:click={() => eventHandlar(name)} class="suggestion">
