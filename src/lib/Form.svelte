@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import Autocompletion from './Autocompletion.svelte';
 	import {
@@ -13,10 +14,10 @@
 	let isLoading = false;
 	let isWarning = false;
 
-	$: if ($selectedJob) {
+	$: if ($selectedJob && browser) {
 		title = $selectedJob;
 	}
-	$: if ($selectedLocation) {
+	$: if ($selectedLocation && browser) {
 		location = $selectedLocation;
 	}
 
@@ -68,6 +69,10 @@
 		{/if}
 		<span>Search</span>
 	</button>
+
+	{#if isWarning}
+		<p class="text-red-600 py-3 text-sm">Please fill the required inputs</p>
+	{/if}
 </div>
 
 <style lang="postcss" scoped>
