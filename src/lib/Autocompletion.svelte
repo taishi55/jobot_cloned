@@ -1,22 +1,27 @@
 <script lang="ts">
+	import { selectedJob, selectedLocation } from './store/filterOptions';
+
 	export let options: string[];
 	export let text: string;
+	export let isLocation = false;
+
+	const eventHandlar = (name: string) => {
+		if (isLocation) {
+			selectedLocation.set(name);
+		} else {
+			selectedJob.set(name);
+		}
+	};
 </script>
 
 {#if options.some((name) => name
 			.toLowerCase()
-			.includes(text.toLowerCase()) && text && name !== text)}
+			.includes(text.toLowerCase()) && text && text !== name)}
 	<div class="autocompletion">
 		{#each options.filter((name) => name.toLowerCase().includes(text.toLowerCase())) as name}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div
-				on:click={() => {
-					text = name;
-				}}
-				class="suggestion"
-			>
+			<button on:click={() => eventHandlar(name)} class="suggestion">
 				{name}
-			</div>
+			</button>
 		{/each}
 	</div>
 {/if}
@@ -27,6 +32,6 @@
 	}
 
 	.suggestion {
-		@apply py-2 px-3 hover:bg-slate-200 cursor-pointer font-semibold text-slate-600 text-sm;
+		@apply w-full block text-left py-2 px-3 hover:bg-slate-200 cursor-pointer font-semibold text-slate-600 text-sm;
 	}
 </style>

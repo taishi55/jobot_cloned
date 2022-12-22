@@ -1,12 +1,24 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Autocompletion from './Autocompletion.svelte';
-	import { locationOptions, majorJobOptions } from './store/filterOptions';
+	import {
+		locationOptions,
+		majorJobOptions,
+		selectedLocation,
+		selectedJob
+	} from './store/filterOptions';
 
 	let title = '';
 	let location = '';
 	let isLoading = false;
 	let isWarning = false;
+
+	$: if ($selectedJob) {
+		title = $selectedJob;
+	}
+	$: if ($selectedLocation) {
+		location = $selectedLocation;
+	}
 
 	const search = () => {
 		if (!title.trim() || !location.trim()) {
@@ -34,7 +46,7 @@
 		placeholder="Job Title or Keywords"
 	/>
 	<i class="fas fa-briefcase input-icon" />
-	<Autocompletion options={majorJobOptions} text={title} />
+	<Autocompletion options={majorJobOptions} text={title} isLocation={false} />
 </div>
 
 <div class=" relative">
@@ -46,7 +58,7 @@
 	/>
 
 	<i class="fas fa-map-marker-alt input-icon" />
-	<Autocompletion options={locationOptions} text={location} />
+	<Autocompletion options={locationOptions} text={location} isLocation={true} />
 </div>
 
 <div>

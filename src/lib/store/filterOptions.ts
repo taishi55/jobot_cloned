@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 export const sortOptions = [
 	{
 		name: 'Recent',
@@ -60,3 +62,6 @@ export const locationOptions = [
 	'San Jose',
 	'REMOTE'
 ];
+
+export const selectedJob = writable("")
+export const selectedLocation = writable("")
