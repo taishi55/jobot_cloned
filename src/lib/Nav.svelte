@@ -46,7 +46,7 @@
 
 <style lang="postcss" scoped>
 	nav {
-		@apply z-50 flex pb-2 pt-2 lg:pb-0 lg:pt-5 px-5 lg:px-8 justify-between items-center lg:items-end w-full sticky top-0 bg-white;
+		@apply z-50 flex pb-2 pt-2 lg:pb-0 lg:pt-5 px-5 lg:px-8 justify-between items-center lg:items-end w-full sticky top-0 left-0 bg-white;
 	}
 
 	.menu {

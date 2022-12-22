@@ -38,3 +38,11 @@ export const typeOptions = [
         query: '&.EMPLOYMENT_TYPE=CONTRACTOR'
     }
 ];
+
+export const majorJobOptions = [
+   'Software Enginner',
+   'Accountant',
+   'Construction',
+   'Civil Engineer',
+   'Data Scientist',
+];

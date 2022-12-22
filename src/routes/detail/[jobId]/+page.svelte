@@ -12,7 +12,7 @@
 </svelte:head>
 
 <Format>
-	<article class="space-y-3 block">
+	<article class="space-y-6 block">
 		<div class="card">
 			<div>
 				<button on:click={() => history.back()}>
