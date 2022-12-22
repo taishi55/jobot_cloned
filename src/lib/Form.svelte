@@ -33,7 +33,7 @@
 		isLoading = true;
 		setTimeout(() => {
 			isLoading = false;
-		}, 3800);
+		}, 2000);
 
 		goto(`/search/${title.trim().replaceAll(' ', '+')}&l=${location.trim().replaceAll(' ', '+')}`);
 	};
