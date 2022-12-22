@@ -1,13 +1,19 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { majorJobOptions } from './store/filterOptions';
+	import Autocompletion from './Autocompletion.svelte';
+	import { locationOptions, majorJobOptions } from './store/filterOptions';
 
 	let title = '';
 	let location = '';
 	let isLoading = false;
+	let isWarning = false;
 
 	const search = () => {
 		if (!title.trim() || !location.trim()) {
+			isWarning = true;
+			setTimeout(() => {
+				isWarning = false;
+			}, 3500);
 			return;
 		}
 
@@ -28,26 +34,7 @@
 		placeholder="Job Title or Keywords"
 	/>
 	<i class="fas fa-briefcase input-icon" />
-	<!-- suggestion -->
-	{#if majorJobOptions.some((name) => name
-				.toLowerCase()
-				.includes(title.toLowerCase()) && title && name !== title)}
-		<div class="autocompletion">
-			{#each majorJobOptions.filter((name) => name
-					.toLowerCase()
-					.includes(title.toLowerCase())) as name}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div
-					on:click={() => {
-						title = name;
-					}}
-					class="suggestion"
-				>
-					{name}
-				</div>
-			{/each}
-		</div>
-	{/if}
+	<Autocompletion options={majorJobOptions} text={title} />
 </div>
 
 <div class=" relative">
@@ -59,6 +46,7 @@
 	/>
 
 	<i class="fas fa-map-marker-alt input-icon" />
+	<Autocompletion options={locationOptions} text={location} />
 </div>
 
 <div>
@@ -81,13 +69,5 @@
 
 	button {
 		@apply text-white bg-sky-500 py-1 flex justify-center items-center space-x-2 w-full font-light rounded-md;
-	}
-
-	.autocompletion {
-		@apply z-10 absolute top-3 translate-y-10 left-0 w-full max-h-40 border-2 border-sky-400 rounded-lg bg-white overflow-y-auto;
-	}
-
-	.suggestion {
-		@apply py-2 px-3 hover:bg-slate-200 cursor-pointer font-semibold text-slate-600 text-sm;
 	}
 </style>
