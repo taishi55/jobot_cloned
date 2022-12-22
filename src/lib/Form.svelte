@@ -15,10 +15,10 @@
 	let isWarning = false;
 
 	$: if ($selectedJob && browser) {
-		title = $selectedJob;
+		title = $selectedJob.trim();
 	}
 	$: if ($selectedLocation && browser) {
-		location = $selectedLocation;
+		location = $selectedLocation.trim();
 	}
 
 	const search = () => {

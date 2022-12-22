@@ -11,8 +11,10 @@
 
 	const eventHandlar = (name: string) => {
 		if (isLocation) {
+			selectedLocation.set('');
 			selectedLocation.set(name);
 		} else {
+			selectedJob.set('');
 			selectedJob.set(name);
 		}
 	};
